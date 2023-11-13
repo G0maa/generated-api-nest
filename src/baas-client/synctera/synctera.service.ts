@@ -1,12 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Configuration } from 'generated-baas-axios';
+import { SharedConfig } from '../interfaces/shared-config.interface';
 
 // used for sharing the config object with other services.
 @Injectable()
-export class SyncteraService {
-  private readonly config: Configuration;
+export class SyncteraConfigService extends SharedConfig {
+  protected config: Configuration;
+
   constructor(private configService: ConfigService) {
+    super();
     this.config = new Configuration({
       basePath: configService.get<string>('SYNCTERA_BASE_PATH'),
       baseOptions: {
@@ -19,8 +22,7 @@ export class SyncteraService {
     });
   }
 
-  // First time using this syntax.
-  get configObject() {
+  get configObject(): Configuration {
     return this.config;
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { PersonsService } from './synctera/persons.service';
+import { PersonsService } from './baas-client/interfaces/persons.interface';
 
 @Injectable()
 export class AppService {
@@ -7,8 +7,8 @@ export class AppService {
 
   async getHello() {
     return this.personsSerivce.createPerson({
-      first_name: 'Jerri',
-      last_name: 'Hogarth',
+      first_name: 'test',
+      last_name: 'inheritnace',
       legal_address: {
         address_line_1: '12620 PADDINGTON AVE',
         city: 'New York',
