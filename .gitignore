@@ -33,3 +33,11 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# secrets
+.env
+
+# Generated API files
+synctera_openapi.json
+generated-baas-axios
+generated-baas-fetch
